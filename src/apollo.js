@@ -5,7 +5,6 @@ import { split } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { server } from './endpoint';
 
-
 let apolloClient;
 
 function createIsomorphLink() {
