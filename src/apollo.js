@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { onError } from "@apollo/client/link/error";
 import { split } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
-import { server, wsEndpoint } from './endpoint';
+import { server } from './endpoint';
 
 
 let apolloClient;
@@ -17,11 +17,11 @@ function createIsomorphLink() {
         const { HttpLink } = require('@apollo/client/link/http')
         const { WebSocketLink } = require('@apollo/client/link/ws');
         const httpLink = new HttpLink({
-            uri: `${server}/api/graphql`,
+            uri: `http://${server}/api/graphql`,
             credentials: 'same-origin',
         })
         const wsLink = new WebSocketLink({
-            uri: `ws://${wsEndpoint}/api/graphql`,
+            uri: `ws://${server}/api/graphql`,
             options: {
               reconnect: true
             },
