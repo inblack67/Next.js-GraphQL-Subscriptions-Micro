@@ -10,13 +10,13 @@ const apolloServer = new ApolloServer({
   context: async ({ req, res }) => ({ req, res, pubsub }),
 
   subscriptions: {
-    path: '/api/graphql',
+    path: '/api/graphqlSubs',
     keepAlive: 9000,
     onConnect: console.log('Subscriptions are here'.blue.bold),
     onDisconnect: () => console.log('Subscriptions disconnected'.red.bold),
   },
   playground: {
-    subscriptionEndpoint: '/api/graphql',
+    subscriptionEndpoint: '/api/graphqlSubs',
 
     settings: {
       'request.credentials': 'same-origin',
