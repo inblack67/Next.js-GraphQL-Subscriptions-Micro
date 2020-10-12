@@ -20,7 +20,7 @@ function createIsomorphLink() {
             credentials: 'same-origin',
         })
         const wsLink = new WebSocketLink({
-            uri: `ws://${server}/api/graphqlSubs`,
+            uri: `ws://${server}/subscriptions`,
             options: {
               reconnect: true,
             },
